@@ -52,13 +52,16 @@ import { TopNavComponent } from './layout/top-nav/top-nav.component';
 
 import { StudentsComponent } from './students/students.component';
 
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { StudentService } from './students/student.service';
+import { ViewStudentComponent } from './students/view-student/view-student.component';
 
 
 const routes: Routes = [
   { path: 'students', component: StudentsComponent },
-  {path: '', component: StudentsComponent}
+  {path: '', component: StudentsComponent},
+  {path: 'students/:id', component: ViewStudentComponent}
+
  // { path: '', redirectTo: '/students', pathMatch: 'full'}
 ];
 
@@ -66,7 +69,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     TopNavComponent,
-    StudentsComponent
+    StudentsComponent,
+    ViewStudentComponent
 
   ],
   imports: [
@@ -115,6 +119,7 @@ MatTableModule,
 RouterModule.forRoot(routes)
 
   ],
+  exports: [RouterModule],
   schemas : [CUSTOM_ELEMENTS_SCHEMA],
   providers: [StudentService],
   bootstrap: [AppComponent]

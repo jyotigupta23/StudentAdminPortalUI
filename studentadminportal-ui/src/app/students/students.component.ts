@@ -14,7 +14,7 @@ export class StudentsComponent implements OnInit {
  students:Student[] =[];
 
  //using the angular material from the web
- displayedColumns: string[] = ['firstName', 'lastName', 'dateOfBirth', 'email', 'mobile', 'gender'];
+ displayedColumns: string[] = ['firstName', 'lastName', 'dateOfBirth', 'email', 'mobile', 'gender','edit'];
 
  //dataSource: it's the student list
 dataSource: MatTableDataSource<Student> = new MatTableDataSource<Student>();
@@ -31,7 +31,7 @@ filterString='';
 
   ngOnInit(): void {
     //fetch
-    this.studentService.getStudent().subscribe(
+    this.studentService.getStudents().subscribe(
       (successResponse)=>{
        /* console.log(successResponse[0].firstName);
         console.log(successResponse[0].lastName);*/

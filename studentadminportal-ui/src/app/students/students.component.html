@@ -49,6 +49,16 @@
       <td mat-cell *matCellDef="let element"> {{element.gender.description}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <!--error here : can't access the data through button-->
+        <a routerLink="[element.id]">
+          <mat-icon color="primary">edit</mat-icon>
+        </a>
+      </td>
+    </ng-container>
+
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -58,7 +68,7 @@
               [pageSize]="10"
               [pageSizeOptions]="[5, 10, 25, 100]"
               aria-label="Select page">
-</mat-paginator>
+  </mat-paginator>
 
 </div>
 </div>
